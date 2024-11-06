@@ -30,7 +30,7 @@ if "active_app" not in st.session_state:
 # Membuat navbar di bagian atas halaman
 selected_nav = option_menu(
     menu_title=None,  # Hapus judul menu untuk navbar
-    options=["About Me", "CV", "Portofolio", "Contact"],
+    options=["About Me", "Portofolio", "Contact"],
     icons=["person", "file-earmark-person", "folder2", "envelope"],
     menu_icon="info-circle",
     default_index=0,
@@ -78,293 +78,6 @@ if selected_nav == "About Me":
         </div>
         """, unsafe_allow_html=True)
       
-
-
-    
-    
-elif selected_nav == "CV":
-    st.markdown("""
-    # <div style='text-align: center; margin-bottom: -15px;'>N.I.S. BALDANULLAH</div>
-    ### <div style='text-align: center; margin-bottom: -10px;'>Data Enthusiast</div> 
-    <div style='text-align: center; margin-bottom: -10px;'>Jakarta, Indonesia</div>  
-    <div style='text-align: center;'>+6281245941155 | baldanullah55@gmail.com | <a href='https://www.linkedin.com/in/n-i-s-baldanullah-a666351b7/'>LinkedIn Profile</a></div>
-    """, unsafe_allow_html=True)
-
-    st.write("")
-
-    # Profile Section
-    st.markdown("""
-    ## <div style='text-align: center; background-color: #f0f0f0; padding: 5px;'>ABOUT ME</div>
-    <hr style="border:2px solid black; margin-top: -40px;">
-    <p style='text-align: justify;'>
-    I am an enthusiastic fan of technology in the field of data science, studying informatics engineering at Pancasila University. 
-    The vast potential in data science has attracted my interest, especially its accurate ability to solve various problems in our society. 
-    By utilizing knowledge from campus and self-learning using various free resources and content, I have gained practical experience and applied my knowledge. 
-    With my abilities, talents, and enthusiasm, I believe I am well-suited to drive meaningful progress both within organizations and in society at large.
-    </p>
-    """, unsafe_allow_html=True)
-
-    st.write("")
-
-    # Experience Section
-    st.markdown("""
-    ## <div style='text-align: center; background-color: #f0f0f0; padding: 5px;'>EXPERIENCE</div>
-    <hr style="border:2px solid black; margin-top: -40px;">
-
-    #### **Big Data Analyst**  
-    _Aug 2023 — Dec 2023 | Makassar_  
-    - Managed large-scale data, including cleansing, storing, and pre-processing
-    - Built Machine Learning models such as LSTM, GRU, and Convolutional Neural Network for predicting Asia Bitumen Price
-    - Developed and deployed a machine learning model to predict and visualize Asia Bitumen prices in an interactive web app dashboard
-
-    #### **Website Administrator, Editor and Publisher at PT. INIPASTI Communika**  
-    _Jan 2020 — Dec 2022 | Makassar_  
-    - Monitoring Website Traffic
-    - Managing the Server and Hosting Platform
-    - Website Content Management
-    - User and Access Management
-    - Backup and Recovery
-
-    #### **Data Entry Assistant at Institute Social and Political Economic Issue (ISPEI)**  
-    _Jan 2014 — Dec 2016 | Makassar_  
-    - Developed and maintained data entry guidelines and processes to ensure accuracy and consistency
-    - Cleaning and Managing data from input paper into excel
-    """, unsafe_allow_html=True)
-
-    st.write("")
-
-    # Education Section
-    st.markdown("""
-    ## <div style='text-align: center; background-color: #f0f0f0; padding: 5px;'>EDUCATION</div>
-    <hr style="border:2px solid black; margin-top: -40px;">
-
-    #### **Pancasila University**  
-    _Bachelor of Informatics Engineering_  
-    _Mar 2020 — Aug 2024 | South Jakarta_
-    """, unsafe_allow_html=True)
-
-    st.write("")
-
-    # Projects Section
-    st.markdown("""
-    ## <div style='text-align: center; background-color: #f0f0f0; padding: 5px;'>PROJECTS</div>
-    <hr style="border:2px solid black; margin-top: -40px;">
-
-    #### **Capstone Project**  
-    _Jun 2023 | Bangkit Academy_  
-    Built Machine Learning models to detect vehicle tire quality in vehicle service online booking applications using image processing with CNN (Convolutional Neural Network)
-
-    #### **Interactive Predictive FOB Bitumen Price Dashboard**  
-    _Sep 2023 — Nov 2023 | Kalla Group_  
-    Built and deployed a machine learning model to predict and visualize Asia bitumen prices in an interactive web app dashboard
-    """, unsafe_allow_html=True)
-
-    st.write("")
-
-    # Publication Section
-    st.markdown("""
-    ## <div style='text-align: center; background-color: #f0f0f0; padding: 5px;'>PUBLICATION</div>
-    <hr style="border:2px solid black; margin-top: -40px;">
-
-    - **Parallel Processing Pada Pemodelan Machine Learning Menggunakan Random Forest**  
-      _May 2023 | Journal of Informatics and Advanced Computing_
-
-    - **Comparison of SAW, WP, and TOPSIS Methods in Determining the Best Journalists**  
-      _Oct 2022 — Dec 2022 | Jurnal Riset Informatika_  
-      Creating a Decision Support System in deciding the best journalist at the company PT. INIPASTI Communika
-
-    - **Pengujian Aplikasi Belajar Berbasis Website Menggunakan Teknik Equivalence Partitioning**  
-      _Nov 2022 | Journal of Informatics and Advanced Computing_
-    """, unsafe_allow_html=True)
-
-    st.write("")
-
-    # Courses Section
-    st.markdown("""
-    ## <div style='text-align: center; background-color: #f0f0f0; padding: 5px;'>COURSES</div>
-    <hr style="border:2px solid black; margin-top: -40px;">
-
-    - **Data Analyst Python Track** (Jun 2024 - Jul 2024, DQLab)
-    
-
-    - **Azure AI Engineer** (Feb 2024 - Mei 2024, KOMINFO Digitalent)
-      - Understand Generative AI
-      - Understand how to Build an AI from Azure into production
-
-    - **Google Data Analytics** (Jun 2023 — Jun 2023, Coursera)
-      - Understand sql and R programming languages
-      - Understand how to manage data and perform tabulation commands using sql commands, and analyze data using R
-
-    - **Deep Learning with TensorFlow** (May 2023 — May 2023, Coursera)
-      - Understand how to train and build artificial neural network models using image data, voice data using the TensorFlow library
-
-    - **Machine Learning Specialization** (Apr 2023 — Apr 2023, Stanford University)
-      - Understand how to model machine learning using linear regression, logistic regression, clustering, and anomaly detection methods
-
-    - **Mathematics for Machine Learning Specialization** (Feb 2023 — Mar 2023, Stanford University)
-      - Understand how to model machine learning using linear regression, logistic regression, clustering, and anomaly detection methods
-
-    - **Python Fundamental for Data Science** (Mein 2022 - Jun 2022, DQLab)
-      - Understand the basic python for data science such as exporting data, converting raw data to csv, cleaning data and pre-processing data
-
-    - **Data Visualization** (Mar 2022 — Apr 2022, ASEAN Data Science Explorers)
-      - Understand how to manage data such as data import, data cleaning, and data visualization
-    """, unsafe_allow_html=True)
-
-    st.write("")
-
-    # Certification Section
-    st.markdown("""
-    ## <div style='text-align: center; background-color: #f0f0f0; padding: 5px;'>CERTIFICATION</div>
-    <hr style="border:2px solid black; margin-top: -40px;">
-
-    - **TensorFlow Developer Certification** (Issued: Dec 2023 — Dec 2026, Google TensorFlow)
-    """, unsafe_allow_html=True)
-
-    st.write("")
-
-    # Skills Section
-    st.markdown("""
-    ## <div style='text-align: center; background-color: #f0f0f0; padding: 5px;'>SKILLS</div>
-    <hr style="border:2px solid black; margin-top: -40px;">
-
-    #### Data Analysis:
-    - Python
-    - SQL
-    - Tableau
-    - Excel
-
-    #### Machine Learning:
-    - Supervised Learning
-    - Unsupervised Learning
-    - Reinforcement Learning
-
-    #### Deep Learning:
-    - Convolutional Neural Network
-    - Recurrent Neural Network
-    - Object Detection
-    - Image Processing
-
-    #### Data Visualization:
-    - Matplotlib
-    - Plotly
-    - Bokeh
-
-    #### Business Intelligence:
-    - Tableau
-    - Power BI
-
-    #### Data Engineering:
-    - SQL
-    - Oracle Database
-    - DDL
-    - DML
-    - ETL
-    """, unsafe_allow_html=True)
-
-    st.write("")
-
-
-      # Display the section titles
-    st.markdown("""
-    ## <div style='text-align: center; background-color: #f0f0f0; padding: 5px;'>SOFT SKILLS</div>
-    <hr style="border:2px solid black; margin-top: -40px;">
-    """, unsafe_allow_html=True)
-
-    # Define styles for custom elements
-    st.markdown(
-        """
-        <style>
-        .section-title {
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            margin-top: 30px;
-        }
-        .skill-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-        .skill-item {
-            width: 30%;
-        }
-        .language-container {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 100px;
-        }
-        .language-item {
-            display: flex;
-            align-items: center;
-        }
-        .dot {
-            height: 10px;
-            width: 10px;
-            background-color: black;
-            border-radius: 50%;
-            display: inline-block;
-            margin: 0 2px;
-        }
-        .empty-dot {
-            background-color: lightgray;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-
-
-    # Soft skills sliders
-    with st.container():
-        col1, col2, col3 = st.columns(3)
-        
-        with col1:
-            st.write("Interpersonal Skill")
-            st.slider('', 0, 10, 8, key="interpersonal", disabled=True)
-        
-        with col2:
-            st.write("Communication")
-            st.slider('', 0, 10, 8, key="communication", disabled=True)
-        
-        with col3:
-            st.write("Collaboration")
-            st.slider('', 0, 10, 9, key="collaboration", disabled=True)
-
-    with st.container():
-        col1, col2, _ = st.columns([1, 1, 1])
-
-        with col1:
-            st.write("Time Management")
-            st.slider('', 0, 10, 8, key="time_management", disabled=True)
-
-
-    st.markdown("""
-    ## <div style='text-align: center; background-color: #f0f0f0; padding: 5px;'>LANGUAGES</div>
-    <hr style="border:2px solid black; margin-top: -40px;">
-    """, unsafe_allow_html=True)
-
-    st.markdown(
-        """
-        <div class="language-container">
-            <div class="language-item">
-                <span>Indonesia</span>&nbsp;<i>Native</i>&nbsp;&nbsp;
-                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                <span class="dot"></span><span class="dot"></span>
-            </div>
-            <div class="language-item">
-                <span>English</span>&nbsp;<i>Proficient</i>&nbsp;&nbsp;
-                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                <span class="dot"></span><span class="empty-dot"></span>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-
-
-
 
 elif selected_nav == "Portofolio":
     with st.expander("Pilih Kategori", expanded=True):
@@ -463,17 +176,17 @@ elif selected_nav == "Portofolio":
 
            
             if selected_app == "Draw MNIST Number":
-                MNIST_st.main()
+                st.write("App Under Maintanance due to streamlit regulation")
             elif selected_app == "Hand Gesture Recognition":
-                HandGestureRecog.main()
+                st.write("App Under Maintanance due to streamlit regulation")
             elif selected_app == "Face Mood Detect":
-                faceemotionApp.main()
+                st.write("App Under Maintanance due to streamlit regulation")
             elif selected_app == "Stock Forecasting":
                 stockapp.main()
             elif selected_app == "Sentiment Analysis":
                 sentimentApp.main()
             elif selected_app == "YOLOV8 Object Detection":
-                f1detectApp.main()
+                st.write("App Under Maintanance due to streamlit regulation")
 
 
 
@@ -515,6 +228,7 @@ elif selected_nav == "Portofolio":
                 st.image("powerbi3.png", caption="Power BI 3")
                 st.image("powerbi4.png", caption="Power BI 4")
                 st.image("powerbi5.png", caption="Power BI 5")
+                st.image("powerbi6.png", caption="Power BI 6")
 
             elif selected_tool == "Tableau":
             
@@ -604,3 +318,4 @@ elif selected_nav == "Contact":
             
         </div>
         """, unsafe_allow_html=True)
+
