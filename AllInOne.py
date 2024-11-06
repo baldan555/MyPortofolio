@@ -16,7 +16,7 @@ import studentperfomance_st
 import airqualitypredict
 import manufactureDefectApp
 #import HandGestureRecog 
-import faceemotionApp
+#import faceemotionApp
 import sentimentApp
 import f1detectApp
 
