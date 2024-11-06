@@ -228,7 +228,7 @@ elif selected_nav == "Portofolio":
                 st.image("powerbi3.png", caption="Power BI 3")
                 st.image("powerbi4.png", caption="Power BI 4")
                 st.image("powerbi5.png", caption="Power BI 5")
-                st.image("powerbi6.png", caption="Power BI 6")
+                st.image("powerbi8.png", caption="Power BI 8")
 
             elif selected_tool == "Tableau":
             
