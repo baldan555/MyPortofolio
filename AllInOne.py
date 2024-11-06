@@ -18,7 +18,7 @@ import manufactureDefectApp
 #import HandGestureRecog 
 #import faceemotionApp
 import sentimentApp
-import f1detectApp
+#import f1detectApp
 
 # Konfigurasi halaman Streamlit
 st.set_page_config(page_title="Kumpulan Aplikasi Streamlit ", layout="wide")
