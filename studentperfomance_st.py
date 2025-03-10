@@ -99,7 +99,7 @@ def main():
     st.write("### Inserted Data")
     st.dataframe(st.session_state.student_data)
 
-    df = pd.read_csv('Student.csv')
+    df = pd.read_csv('student.csv')
 
     model, scaler, feature_order = train_model_and_scaler(df)
 
