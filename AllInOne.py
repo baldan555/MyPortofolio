@@ -5,7 +5,7 @@ import MallCustomerClusteringDash
 import MNIST_st
 import rhizomes_st
 import stockapp
-import churnpredict_st
+#import churnpredict_st
 import creditRiskApp
 import heart_failure_st
 import lungcancerpredict_st
