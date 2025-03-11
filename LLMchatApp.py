@@ -26,11 +26,14 @@ def main():
         )
 
         max_tokens_range = models[model_option]["tokens"]
+        # Atur nilai default ke setengah dari max_tokens_range atau 8192, mana yang lebih kecil
+        default_tokens = min(8192, max_tokens_range // 2)
+        
         max_tokens = st.slider(
             "Max Tokens",
             min_value=512,
             max_value=max_tokens_range,
-            value=max(32768, max_tokens_range),  # Nilai default disesuaikan
+            value=default_tokens,  # Nilai default yang aman
             step=512,
             help=f"Max tokens for {models[model_option]['name']}: {max_tokens_range}",
             key="tokens_slider"
@@ -90,7 +93,7 @@ def main():
                 chat_responses_generator = generate_chat_responses(chat_completion)
                 full_response = st.write_stream(chat_responses_generator)
         except Exception as e:
-            st.error(e, icon="🚨")
+            st.error(f"Error: {str(e)}", icon="🚨")
 
         if isinstance(full_response, str):
             st.session_state.messages.append({"role": "assistant", "content": full_response})
