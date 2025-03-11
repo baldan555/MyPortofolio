@@ -6,7 +6,7 @@ import MNIST_st
 import rhizomes_st
 import stockapp
 #import churnpredict_st
-import creditRiskApp
+#import creditRiskApp
 import heart_failure_st
 import lungcancerpredict_st
 import diseasediagnosisandrecommender_st
@@ -95,8 +95,6 @@ elif selected_nav == "Portofolio":
                 "Pilih Aplikasi",
                 [
                     "Mall Customer Clustering",
-                    "Churn Prediction",
-                    "Credit Risk Assessment",
                     "Telco Customer Churn",
                     "NYC Taxi Anomaly Detection",
                     "Heart Failure Prediction",
@@ -108,9 +106,7 @@ elif selected_nav == "Portofolio":
                 ],
                 icons=[
                     "shop",
-                    "person-check",
                     "file-earmark-medical",
-                    "people-fill",
                     "taxi",
                     "heart-pulse",
                     "lungs",
