@@ -13,60 +13,41 @@ def main():
         "mixtral-8x7b-32768": {"name": "Mixtral-8x7b-Instruct-v0.1", "tokens": 32768, "developer": "Mistral"},
     }
 
-    # Navbar configuration
-    st.markdown("""
-        <style>
-        .navbar {
-            background-color: #f8f9fa;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        </style>
-    """, unsafe_allow_html=True)
-
-    # Initialize session state
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
-    if "selected_model" not in st.session_state:
-        st.session_state.selected_model = "mixtral-8x7b-32768"  # Default model
-
-    # Navbar layout
-    with st.container():
-        st.markdown('<div class="navbar">', unsafe_allow_html=True)
-        col1, col2, col3 = st.columns([2, 2, 1])
+    # Sidebar configuration
+    with st.sidebar:
+        st.header("Settings")
         
-        with col1:
-            model_option = st.selectbox(
-                "Select Model",
-                options=list(models.keys()),
-                format_func=lambda x: f"{models[x]['name']} ({models[x]['developer']})",
-                index=list(models.keys()).index(st.session_state.selected_model),
-                key="model_select"
-            )
+        model_option = st.selectbox(
+            "Select Model",
+            options=list(models.keys()),
+            format_func=lambda x: f"{models[x]['name']} ({models[x]['developer']})",
+            index=list(models.keys()).index("mixtral-8x7b-32768"),  # Default model
+            key="model_select"
+        )
 
-        with col2:
-            max_tokens_range = models[model_option]["tokens"]
-            max_tokens = st.slider(
-                "Max Tokens",
-                min_value=512,
-                max_value=max_tokens_range,
-                value=min(32768, max_tokens_range),
-                step=512,
-                key="tokens_slider"
-            )
+        max_tokens_range = models[model_option]["tokens"]
+        max_tokens = st.slider(
+            "Max Tokens",
+            min_value=512,
+            max_value=max_tokens_range,
+            value=min(32768, max_tokens_range),
+            step=512,
+            help=f"Max tokens for {models[model_option]['name']}: {max_tokens_range}",
+            key="tokens_slider"
+        )
 
-        with col3:
-            st.write(f"Max: {max_tokens_range}")
-        
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    # Emoji icon
+    # Main content
     st.write(
         '<span style="font-size: 78px; line-height: 1">🏎️</span>',
         unsafe_allow_html=True,
     )
     st.subheader("Groq Chat Streamlit App", divider="rainbow", anchor=False)
+
+    # Initialize session state
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+    if "selected_model" not in st.session_state:
+        st.session_state.selected_model = "mixtral-8x7b-32768"
 
     # Client initialization
     client = Groq(api_key=st.secrets["GROQ_API_KEY"])
