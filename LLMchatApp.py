@@ -3,29 +3,6 @@ from typing import Generator
 from groq import Groq
 
 def main():
-    
-    def icon(emoji: str):
-        """Shows an emoji as a Notion-style page icon."""
-        st.write(
-            f'<span style="font-size: 78px; line-height: 1">{emoji}</span>',
-            unsafe_allow_html=True,
-        )
-
-    icon("🏎️")
-
-    st.subheader("Groq Chat Streamlit App", divider="rainbow", anchor=False)
-
-    client = Groq(
-        api_key=st.secrets["GROQ_API_KEY"],
-    )
-
-    # Initialize chat history and selected model
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
-
-    if "selected_model" not in st.session_state:
-        st.session_state.selected_model = None
-
     # Define model details
     models = {
         "gemma2-9b-it": {"name": "Gemma2-9b-it", "tokens": 8192, "developer": "Google"},
@@ -36,47 +13,84 @@ def main():
         "mixtral-8x7b-32768": {"name": "Mixtral-8x7b-Instruct-v0.1", "tokens": 32768, "developer": "Mistral"},
     }
 
-    # Layout for model selection and max_tokens slider
-    col1, col2 = st.columns(2)
+    # Navbar configuration
+    st.markdown("""
+        <style>
+        .navbar {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
-    with col1:
-        model_option = st.selectbox(
-            "Choose a model:",
-            options=list(models.keys()),
-            format_func=lambda x: models[x]["name"],
-            index=4  # Default to mixtral
-        )
+    # Initialize session state
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+    if "selected_model" not in st.session_state:
+        st.session_state.selected_model = "mixtral-8x7b-32768"  # Default model
 
-    # Detect model change and clear chat history if model has changed
+    # Navbar layout
+    with st.container():
+        st.markdown('<div class="navbar">', unsafe_allow_html=True)
+        col1, col2, col3 = st.columns([2, 2, 1])
+        
+        with col1:
+            model_option = st.selectbox(
+                "Select Model",
+                options=list(models.keys()),
+                format_func=lambda x: f"{models[x]['name']} ({models[x]['developer']})",
+                index=list(models.keys()).index(st.session_state.selected_model),
+                key="model_select"
+            )
+
+        with col2:
+            max_tokens_range = models[model_option]["tokens"]
+            max_tokens = st.slider(
+                "Max Tokens",
+                min_value=512,
+                max_value=max_tokens_range,
+                value=min(32768, max_tokens_range),
+                step=512,
+                key="tokens_slider"
+            )
+
+        with col3:
+            st.write(f"Max: {max_tokens_range}")
+        
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    # Emoji icon
+    st.write(
+        '<span style="font-size: 78px; line-height: 1">🏎️</span>',
+        unsafe_allow_html=True,
+    )
+    st.subheader("Groq Chat Streamlit App", divider="rainbow", anchor=False)
+
+    # Client initialization
+    client = Groq(api_key=st.secrets["GROQ_API_KEY"])
+
+    # Detect model change
     if st.session_state.selected_model != model_option:
         st.session_state.messages = []
         st.session_state.selected_model = model_option
 
-    max_tokens_range = models[model_option]["tokens"]
-
-    with col2:
-        max_tokens = st.slider(
-            "Max Tokens:",
-            min_value=512,
-            max_value=max_tokens_range,
-            value=min(32768, max_tokens_range),
-            step=512,
-            help=f"Adjust the maximum number of tokens for the model's response. Max for selected model: {max_tokens_range}"
-        )
-
+    # Chat history display
     for message in st.session_state.messages:
         avatar = '🤖' if message["role"] == "assistant" else '👨‍💻'
         with st.chat_message(message["role"], avatar=avatar):
             st.markdown(message["content"])
 
+    # Chat response generator
     def generate_chat_responses(chat_completion) -> Generator[str, None, None]:
         for chunk in chat_completion:
             if chunk.choices[0].delta.content:
                 yield chunk.choices[0].delta.content
 
+    # Chat input
     if prompt := st.chat_input("Enter your prompt here..."):
         st.session_state.messages.append({"role": "user", "content": prompt})
-
         with st.chat_message("user", avatar='👨‍💻'):
             st.markdown(prompt)
 
@@ -84,7 +98,8 @@ def main():
             chat_completion = client.chat.completions.create(
                 model=model_option,
                 messages=[
-                    {"role": m["role"], "content": m["content"]} for m in st.session_state.messages
+                    {"role": m["role"], "content": m["content"]} 
+                    for m in st.session_state.messages
                 ],
                 max_tokens=max_tokens,
                 stream=True
