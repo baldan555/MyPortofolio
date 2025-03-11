@@ -21,7 +21,7 @@ def main():
             "Select Model",
             options=list(models.keys()),
             format_func=lambda x: f"{models[x]['name']} ({models[x]['developer']})",
-            index=list(models.keys()).index("mixtral-8x7b-32768"),  # Default model
+            index=list(models.keys()).index("llama-3.3-70b-versatile"),  # Default ke LLaMA 3.3
             key="model_select"
         )
 
@@ -30,7 +30,7 @@ def main():
             "Max Tokens",
             min_value=512,
             max_value=max_tokens_range,
-            value=min(32768, max_tokens_range),
+            value=min(32768, max_tokens_range),  # Nilai default disesuaikan
             step=512,
             help=f"Max tokens for {models[model_option]['name']}: {max_tokens_range}",
             key="tokens_slider"
@@ -47,7 +47,7 @@ def main():
     if "messages" not in st.session_state:
         st.session_state.messages = []
     if "selected_model" not in st.session_state:
-        st.session_state.selected_model = "LLaMA3-8b-8192"
+        st.session_state.selected_model = "llama-3.3-70b-versatile"  # Default ke LLaMA 3.3
 
     # Client initialization
     client = Groq(api_key=st.secrets["GROQ_API_KEY"])
