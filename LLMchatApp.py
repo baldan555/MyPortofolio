@@ -47,7 +47,7 @@ def main():
     if "messages" not in st.session_state:
         st.session_state.messages = []
     if "selected_model" not in st.session_state:
-        st.session_state.selected_model = "mixtral-8x7b-32768"
+        st.session_state.selected_model = "LLaMA3-8b-8192"
 
     # Client initialization
     client = Groq(api_key=st.secrets["GROQ_API_KEY"])
