@@ -25,19 +25,9 @@ def main():
             key="model_select"
         )
 
-        max_tokens_range = models[model_option]["tokens"]
-        # Atur nilai default ke setengah dari max_tokens_range atau 8192, mana yang lebih kecil
-        default_tokens = min(8192, max_tokens_range // 2)
-        
-        max_tokens = st.slider(
-            "Max Tokens",
-            min_value=512,
-            max_value=max_tokens_range,
-            value=default_tokens,  # Nilai default yang aman
-            step=512,
-            help=f"Max tokens for {models[model_option]['name']}: {max_tokens_range}",
-            key="tokens_slider"
-        )
+        # Secara otomatis set max_tokens ke batas maksimum model yang dipilih
+        max_tokens = models[model_option]["tokens"]
+        st.write(f"Max Tokens: {max_tokens} (auto-set to model maximum)")
 
     # Main content
     st.write(
@@ -85,7 +75,7 @@ def main():
                     {"role": m["role"], "content": m["content"]} 
                     for m in st.session_state.messages
                 ],
-                max_tokens=max_tokens,
+                max_tokens=max_tokens,  # Gunakan nilai maksimum model
                 stream=True
             )
 
