@@ -30,7 +30,7 @@ def main():
             "Max Tokens",
             min_value=512,
             max_value=max_tokens_range,
-            value=min(32768, max_tokens_range),  # Nilai default disesuaikan
+            value=max(32768, max_tokens_range),  # Nilai default disesuaikan
             step=512,
             help=f"Max tokens for {models[model_option]['name']}: {max_tokens_range}",
             key="tokens_slider"
