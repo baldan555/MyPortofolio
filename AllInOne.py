@@ -5,6 +5,7 @@ import MallCustomerClusteringDash
 import MNIST_st
 import rhizomes_st
 import stockapp
+import LLMchatApp
 #import churnpredict_st
 #import creditRiskApp
 import heart_failure_st
@@ -150,6 +151,7 @@ elif selected_nav == "Portofolio":
             selected_app = option_menu(
                 "Pilih Aplikasi",
                 [
+                    "LLM Chat BOT"
                     "Draw MNIST Number",
                     "Hand Gesture Recognition",
                     "Face Mood Detect",
@@ -158,6 +160,7 @@ elif selected_nav == "Portofolio":
                     "Sentiment Analysis",
                 ],
                 icons=[
+                    "Bot"
                     "hand",
                     "eye",
                     "face",
@@ -170,8 +173,10 @@ elif selected_nav == "Portofolio":
                 orientation="horizontal"
             )
 
-           
-            if selected_app == "Draw MNIST Number":
+
+            if selected_app == "LLM Chat BOT":
+                LLMchatApp.main()
+            elif selected_app == "Draw MNIST Number":
                 st.write("App Under Maintanance due to streamlit regulation")
             elif selected_app == "Hand Gesture Recognition":
                 st.write("App Under Maintanance due to streamlit regulation")
