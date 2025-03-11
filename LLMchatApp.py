@@ -34,7 +34,7 @@ def main():
         '<span style="font-size: 78px; line-height: 1">🏎️</span>',
         unsafe_allow_html=True,
     )
-    st.subheader("Groq Chat Streamlit App", divider="rainbow", anchor=False)
+    st.subheader("LLM Chat Bot App", divider="rainbow", anchor=False)
 
     # Initialize session state
     if "messages" not in st.session_state:
