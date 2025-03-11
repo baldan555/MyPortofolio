@@ -151,7 +151,7 @@ elif selected_nav == "Portofolio":
             selected_app = option_menu(
                 "Pilih Aplikasi",
                 [
-                    "LLM Chat BOT"
+                    "LLM Chat BOT",
                     "Draw MNIST Number",
                     "Hand Gesture Recognition",
                     "Face Mood Detect",
