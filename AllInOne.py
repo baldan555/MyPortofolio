@@ -16,7 +16,7 @@ import nyctaxianomalyApp
 import studentperfomance_st
 import airqualitypredict
 import manufactureDefectApp
-import HandGestureRecog 
+#import HandGestureRecog 
 #import faceemotionApp
 import sentimentApp
 #import f1detectApp
