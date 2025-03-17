@@ -18,7 +18,7 @@ import airqualitypredict
 import manufactureDefectApp
 #import HandGestureRecog 
 #import faceemotionApp
-import sentimentApp
+#import sentimentApp
 #import f1detectApp
 
 # Konfigurasi halaman Streamlit
